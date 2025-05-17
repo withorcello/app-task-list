@@ -1,23 +1,13 @@
 import React from "react";
 import { View, Text, FlatList, StyleSheet } from "react-native";
+import Task from "../components/Task";
 
 export default function Tabela({ itens }) {
-  const linha = ({ item }) => (
-    <View style={styles.row}>
-      <Text>{item.id}</Text>
-      <Text>{item.nome}</Text>
-    </View>
-  )
-
   return (
     <View>
-      <View style={styles.header}>
-        <Text>Id</Text>
-        <Text>Nome</Text>
-      </View>
       <FlatList
         data={itens}
-        renderItem={linha}
+        renderItem={Task}
         keyExtractor={item => item.id}
         contentContainerStyle={styles.container}
       />
