@@ -1,15 +1,18 @@
 import React from "react";
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import checkboxChecked from '../assets/checkbox-checked.png';
+import checkboxUnchecked from '../assets/checkbox-unchecked.png';
 
 export default function Tabela({ item }) {
     return (
         <View style={styles.row}>
-            <Image
-                style={styles.tinyLogo}
-                source={checkboxChecked}
-            />
-            <Text>{item.id}</Text>
+            <TouchableOpacity onPress={() => item.checkItem(item.id)}>
+                <Image
+                    style={styles.tinyLogo}
+                    source={item.check ? checkboxChecked : checkboxUnchecked}
+                />
+            </TouchableOpacity>
+            <Text>{item.check + " "}</Text>
             <Text>{item.nome}</Text>
         </View>
     );
@@ -25,7 +28,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
     },
     tinyLogo: {
-        width: 50,
-        height: 50,
+        width: 20,
+        height: 20,
     },
 });
