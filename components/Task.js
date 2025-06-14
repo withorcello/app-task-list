@@ -5,15 +5,14 @@ import checkboxUnchecked from '../assets/checkbox-unchecked.png';
 
 export default function Tabela({ item }) {
     return (
-        <View style={styles.row}>
+        <View style={{ ...styles.row, opacity: item.check ? '0.5' : '1' }}>
             <TouchableOpacity onPress={() => item.checkItem(item.id)}>
                 <Image
                     style={styles.tinyLogo}
                     source={item.check ? checkboxChecked : checkboxUnchecked}
                 />
             </TouchableOpacity>
-            <Text>{item.check + " "}</Text>
-            <Text>{item.nome}</Text>
+            <Text style={{ opac: item.check ? '#646464' : 'black' }}>{item.nome}</Text>
         </View>
     );
 }
@@ -25,7 +24,6 @@ const styles = StyleSheet.create({
         gap: 4,
         padding: 4,
         borderRadius: 3,
-        backgroundColor: 'white',
     },
     tinyLogo: {
         width: 20,
