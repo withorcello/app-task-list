@@ -1,7 +1,6 @@
-import { Keyboard, StyleSheet, TextInput, View } from 'react-native';
+import { StyleSheet, TextInput, View } from 'react-native';
 import Tabela from './components/Tabela';
 import { useState } from 'react';
-import TrocaTheme from './components/TrocaTheme';
 import { ThemeProvider } from "./context/ThemeContext";
 
 export default function App() {
@@ -18,10 +17,7 @@ const AppContent = () => {
   const { colors } = React.useContext(require("./context/ThemeContext").ThemeContext)
 
   const [newItem, setNewItem] = useState('');
-  const [itens, setItens] = useState([
-    { id: "01", nome: "Fazer atividade de POO", check: false, checkItem: checkItem },
-    { id: "02", nome: "Fazer atividade de Banco de Dados", check: false, checkItem: checkItem },
-  ]);
+  const [itens, setItens] = useState([]);
 
   function checkItem(id) {
     const novosItens = itens.map(item => {
